@@ -13,6 +13,10 @@ requires = [
     'deform',
     'pyramid_jinja2',
     'pyramid_celery',
+    'js.bootstrap',
+    'deform_bootstrap',
+    'sqlalchemy',
+    'pyramid_fanstatic',
     ]
 
 setup(name='rcommande',
@@ -35,8 +39,12 @@ setup(name='rcommande',
       install_requires=requires,
       tests_require=requires,
       test_suite="rcommande",
-      entry_points="""\
-      [paste.app_factory]
-      main = rcommande:main
-      """,
+      entry_points={
+      'paste.app_factory':
+        ['main = rcommande:main',
+        'initialize_rcommande_db = rcommande.contact.models:initialize_sql',
+        ],
+      # 'fanstatic.libraries':
+      #   ['fanstatic_lib = rcommande.contact:rcommande_lib', ],
+      },
       )
