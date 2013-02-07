@@ -16,11 +16,13 @@ requires = [
     'js.bootstrap',
     'deform_bootstrap',
     'sqlalchemy',
+    'zope.sqlalchemy',
     'pyramid_fanstatic',
+    'transaction',
     ]
 
 setup(name='rcommande',
-      version='0.0',
+      version='0.1-dev',
       description='rcommande',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -41,9 +43,9 @@ setup(name='rcommande',
       test_suite="rcommande",
       entry_points={
       'paste.app_factory':
-        ['main = rcommande:main',
-        'initialize_rcommande_db = rcommande.contact.models:initialize_sql',
-        ],
+      ['main = rcommande:main', ],
+      'console_scripts':
+      ['initialize_contact_db = rcommande.scripts.initializedb:main', ],
       # 'fanstatic.libraries':
       #   ['fanstatic_lib = rcommande.contact:rcommande_lib', ],
       },

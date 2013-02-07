@@ -1,2 +1,10 @@
-Rendu:
-{{ form|safe }}
+{% extends "base.jinja2" %}
+
+{% block content %}
+    {% if form %}
+    {{ form|safe }}
+    {% else %}
+    {% from "alert.jinja2" import alert %}
+    {{ alert(message, message_type) }}
+    {% endif %}
+{% endblock %}
