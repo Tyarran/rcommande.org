@@ -6,7 +6,6 @@ from deform import Form
 from pyramid.view import view_config
 from pyramid.i18n import TranslationString as _
 from js.bootstrap import bootstrap
-from colanderalchemy import SQLAlchemyMapping
 from deform.exception import ValidationFailure
 
 from rcommande.contact.forms import ContactSchema
